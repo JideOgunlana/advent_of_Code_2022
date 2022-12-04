@@ -7,92 +7,21 @@
 </head>
 
 <body>
+	<h3>Advent of Code<br/>
+		&lt;y&gt;2022&lt;/y&gt;
+	</h3>
+	<p>
+		-- Day 1: Calorie Couting --
+	</p>
+	<p>
+		Select the input file provided
+	</p>
 	<input type="file" name="inputfile"
 			id="inputfile">
 	<br>
-
-	<pre id="output"></pre>
-	
-	<script type="text/javascript">
-		document.getElementById('inputfile')
-			.addEventListener('change', function() {
-			
-			let fr=new FileReader();
-            let input = '';
-            let numArr = [];
-            let sumArr = [];
-            let total = 0;
-            let totalThree = 0;
-            let top3 = [];
-            class sums {
-            constructor(index, value) {
-                this.index = index;
-                this.value = value;
-            }
-            }
-            let j = 0;
-			// fr.onload=function(){
-			// 	document.getElementById('output')
-			// 			.textContent=fr.result;
-			// }
-			
-            fr.onload = function(){
-                // console.log(typeof fr.result)
-                for (let i = 0; i < fr.result.length; i++)
-                {
-                    while (fr.result[i] != '\n' && i < fr.result.length)
-                    {
-                        input += fr.result[i];
-                        i++;
-                    }
-                    numArr.push(input);
-                    input = '';
-                }
-                console.log(numArr);
-                i = 0;
-                numArr.forEach((x, j) => {
-                    console.log(typeof x);
-                    if (x != '')
-                        total += parseInt(x);
-                    if (x == '' || j == numArr.length - 1)
-                    {
-                        sumArr[i] = new sums(i + 1, total);
-                        total = 0;
-                        i++;
-                    }
-                });
-                console.log(sumArr);
-
-                let max = sumArr[0].value;
-                for (let i = 1; i < sumArr.length; i++)
-                {
-                    if (max < sumArr[i].value)
-                    {
-                        max = sumArr[i].value;
-                    }
-                }
-                console.log("Maximum value is: " + max);
-                
-                for (let i = 1; i <= 3; i++)
-                {
-                    max = 0;
-                    let maxIndex = 0;
-                    for (let j = 0; j < sumArr.length; j++)
-                    {
-                        if (max < sumArr[j].value)
-                        {
-                            max = sumArr[j].value;
-                            maxIndex = j;
-                        }
-                    }
-                    totalThree += max;
-                    top3.push(sumArr.splice(maxIndex, 1));
-                }
-                console.log(top3, totalThree);
-            };
-			fr.readAsText(this.files[0]);
-		})
-	</script>
+	<div class="input"></div>
+	<div class="output"></div>
+	<script src="./calorie_counting.js"></script>
 </body>
 
 </html>
