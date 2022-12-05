@@ -12,7 +12,8 @@ let getLines = (fr, numArr) => {
 	{
 		while (fr.result[i] != '\n' && i < fr.result.length)
 		{
-			input += fr.result[i];
+			if (fr.result[i] != '\r')
+				input += fr.result[i];
 			i++;
 		}
 		numArr.push(input);
