@@ -1,31 +1,7 @@
 'use strict'
 
-/**
- * 
- * @param {object} fr FileReader object
- * @param {array} numArr Array of numbers representing each elf calories
- */
-let getLines = (fr, numArr) => {
-	let input = '';
+import {getLines} from "../utils/utils.js"
 
-	for (let i = 0; i < fr.result.length; i++)
-	{
-		while (fr.result[i] != '\n' && i < fr.result.length)
-		{
-			if (fr.result[i] != '\r')
-				input += fr.result[i];
-			i++;
-		}
-		numArr.push(input);
-		input = '';
-	}
-}
-
-/**
- * 
- * @param {array} sumArr Array of Sum of each calories of every elf
- * @param {array} numArr Array of numbers representing each elf calories
- */
 let sumEachElfCalory = (sumArr, numArr) => {
 	let i = 0;
 	let total = 0;
@@ -48,12 +24,6 @@ let sumEachElfCalory = (sumArr, numArr) => {
 	});
 }
 
-/**
- * 
- * @param {array} sumArr Array of Sum of each calories of every elf
- * @param {number} max highest calory
- * @returns sum object
- */
 let getMaxCalory = (sumArr, max) => {
 	let elfWithMostCalory;
 	for (let i = 0; i < sumArr.length; i++)
@@ -64,13 +34,6 @@ let getMaxCalory = (sumArr, max) => {
 	return elfWithMostCalory;
 }
 
-/**
- * 
- * @param {array} sumArr Array of Sum of each calories of every elf
- * @param {array} top3 Array of top 3 elves with highest calories
- * @param {number} totalTopThree Sum of calories of top 3 elves with hightes calories
- * @returns number
- */
 let getTop3Cals = (sumArr, top3, totalTopThree) => {
 	let maxIndex;
 	let max;
@@ -106,7 +69,7 @@ document.getElementById('inputfile').addEventListener('change', function() {
 		input.innerText = '';
 		output.innerText = '';
 		setTimeout(function() {
-			getLines(fr, numArr);
+			numArr = getLines(fr);
 			let p = document.createElement("P");
 			input.append(p);
 			for (let i = 0; i < numArr.length; i++)
