@@ -1,0 +1,59 @@
+/ 0
+
+fcqv 1,   fcv 5,     jvwfwrg     tzwpllhq    vglf
+fhg 2, thbb 4| ffhwg 6, vcqsrw 8, znzpm
+jljrdvw 3, , | hlqf 7,
+
+
+0 /
+1 fcqv - 0          cd fcqv
+2 fhg  - 1          cd fhg
+3 jljrdvw - 2       cd jljrdvw
+4 thbb - 1          cd .. cd .. cd thbb
+5 fcv - 0           cd ..  cd .. cd fcv
+6 ffhwg - 5         cd ffhwg
+7 hlqf - 6          cd hlqf
+8 vcqsrw - 5        cd .. cd .. cd vcqsrw
+
+
+
+levelup is 1
+after encountering .. it increases
+if in the next cd .. is still seen it is not reset
+1 + 2 => 3
+3 + 2 => 5
+
+if cd .. is not seen level up is reset to 1
+1
+
+
+
+
+            /           fcqv      fhg       jljrdvw      
+cd          cd          cd         cd                   
+            0           1           2            3       
+
+                                                cd ..
+                                    2
+                                    cd ..
+                        1
+
+                                    thbb
+                        cd
+                                      2 (2 - 1) => parent 1 parent is the levle before
+                                        cd ..
+                          1
+                          cd ..
+            0
+
+                        fcv       ffhwg         hlqf
+            cd           cd         cd          
+                          1         2           3
+
+                                                cd ..
+                                    2
+                                    cd ..
+                        1
+
+                                   vcqsrw
+                        cd           2
