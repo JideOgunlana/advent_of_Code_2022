@@ -1,0 +1,26 @@
+/* 
+    reset styles
+*/
+
+*,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg-color);
+}
+
+h3 {
+    color: var(--green)
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
