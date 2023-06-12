@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import Modal from "react-modal";
 import "./day1.css"
 import { getLines } from "../../utils/utils";
 import { input1, input2 } from "../../assets/tests"
-// import input1 from "../../assets/day1/input1"
 
 let sumEachElfCalory = (sumArr, numArr) => {
 	let i = 0;
@@ -67,46 +67,39 @@ let getTop3Cals = (sumArr, top3, totalTopThree) => {
 	return totalTopThree;
 }
 
-const Output = ( {result} ) => {
-    const [fileContent, setFileContent] = useState("");
-
-	useEffect( ()=> {
-		fetch(input1)
-		.then((response) => response.text())
-		.then((content) => {
-			setFileContent(content);
-			// Processing happens here
-		})
-		.catch((error) => {
-			console.error("Error reading file:", error);
-		});
-	}, [] )
-    return (
-        <div>
-			Result is &#61; &gt; {result}
-			<div>
-				{fileContent}
-			</div>
-        </div>
-    );
+const Header = ({title}) => {
+	return (
+		<div>
+			<h3>
+                Advent of Code<br/>&lt;y&gt;2022&lt;/y&gt;
+            </h3>
+            <p>
+				{title}
+            </p>
+            <p>
+                Select an input file
+            </p>
+		</div>
+	);
 }
 
 const Day1 = () => {
-    // let [ result, setResult ] = useState(false);
-	// let [ userInput, setUserInput ] = useState("")
 
-	const [fileContent, setFileContent] = useState("");
-	const [ result , setResult ] = useState(false);
+	const [input1fileContent, setinput1FileContent] = useState("");
+	const [input2FileContent, setInput2FileContent] = useState("");
+	const [isEditMode, setIsEditMode] = useState([]);
+
+	const [result, setResult] = useState(false);
 	const [max, setMax] = useState({index: null, value: null});
 	let [totalTopThree, setTotalTopThree] = useState(0);
 	let [top3, setTop3 ] = useState([]);
 
-
+	let [testFile, setTestFile] = useState("");
 	useEffect( () => {
-		fetch(input2)
+		fetch(input1)
 		.then((response) => response.text())
 		.then((content) => {
-			setFileContent(content);
+			setinput1FileContent(content);
 			// Processing happens here
 		})
 		.catch((error) => {
@@ -114,9 +107,46 @@ const Day1 = () => {
 		})
 	}, [] );
 
+	useEffect( () => {
+		fetch(input2)
+		.then((response) => response.text())
+		.then((content) => {
+			setInput2FileContent(content);
+			// Processing happens here
+		})
+		.catch((error) => {
+			console.log("Error reading file:", error);
+		})
+	}, [] );
+
+	const openModal = (id) => {
+		setIsEditMode((prevModals) => {
+			if(!prevModals.includes(id)) {
+
+				return [...prevModals, id];
+			}
+			return prevModals;
+		})
+	}
+
+	const closeModal = (id) => {
+		setIsEditMode((prevModals) => prevModals.filter( (modalId) => modalId !== id));
+	}
+
 	const handleProcess = () => {
-		let numArr = getLines(fileContent);
+		let numArr = [];
+		if (testFile === "default") {
+			numArr = getLines(input1fileContent);
+		}
+		else if (testFile === "test") {
+			numArr = getLines(input2FileContent);
+		}
+		else {
+			alert("Pick a file");
+			return ;
+		}
 		let sumArr = [];
+
 		console.log(numArr);
 		setResult(true);
 
@@ -128,31 +158,64 @@ const Day1 = () => {
 		setTotalTopThree (
 			getTop3Cals(sumArr, top3, totalTopThree)
 		)
+
 		setTop3(top3);
 	};
 
     return (
         <div className="day1__container">
-            <h3>
-                Advent of Code<br/>&lt;y&gt;2022&lt;/y&gt;
-            </h3>
-            <p>
-                -- Day 1: Calorie Couting --
-            </p>
-            <p>
-                Select the input file provided
-            </p>
-            {/* <button onClick={ () => setResult(result + 1) } > Click </button> */}
-            {/* <input type="file" id="inputfile" onChange={ (e) => { setResult(e.target.value != ""); setUserInput(e.target.value)} } />
-            <br />
-            {
-                result && <Output result={userInput}/>
-            } */}
-			<textarea value={fileContent} rows="50" column="50" onChange={ (e) => {setFileContent(e.target.value); setResult(false)} } />
-			<button onClick={handleProcess} > Process File </button>
+			<Header title="-- Day 1: Calorie Couting --" />
+
+			<div className="card" id="test" onClick={() => setTestFile("test")}>
+				<div className="card-button">
+						<button onClick={ () => openModal('modal2')}>Edit</button>
+				</div>
+				<pre>
+					{input2FileContent}
+				</pre>
+			</div>
+			<div className="card" id="default" onClick={() => setTestFile("default")}>
+				<div className="card-button">
+					<button onClick={()=>openModal('modal1')} >View test 1</button>
+				</div>
+				<pre>{input1fileContent}</pre>
+			</div>
+
 			{
-				result && fileContent				
+				isEditMode.map( (id) => (
+					<div key={id}>
+						<Modal
+							isOpen={true}
+							onRequestClose={()=>closeModal(id)}
+							contentLabel={`Edit test ${id}`}
+							>
+							{
+								(id === "modal1") ? 
+							<textarea value={input1fileContent} rows="50" column="50" /* onChange={ (e) => {setinput1FileContent(e.target.value); setResult(false)} } */ />
+							:
+							<textarea value={input2FileContent} rows="50" column="50" onChange={ (e) => {setInput2FileContent(e.target.value); setResult(false)} } />
+
+							}
+							{
+								(id === "modal1") ? 
+								<button onClick={()=>closeModal(id)} >
+									Close
+								</button>
+								:
+								<button onClick={()=>closeModal(id)} >
+									Save
+								</button>
+							}
+						</Modal>
+					</div>
+				))
 			}
+
+			{/* 
+				A test file should be selected,then this button can be used
+			*/}
+				<button onClick={handleProcess} > Process File </button>
+
 			<br />
 			{
 				result &&
