@@ -2,11 +2,34 @@
     reset styles
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600;1,400&family=Ubuntu:wght@300;400;700&display=swap');
 
 :root {
-    --font-family: "Manrope", "sans-serif";
-    --bg-color: #000;
-    --grey: #CCC;
-    --green: #00CC00;
+    --font-family: 'Source Code Pro', monospace;
+    --bg-color: #0F0f23;
+    --grey: #cccccc;
+    --green: #009900;
+    --gold: #ffff66;
+}
+
+body,
+body * {
+    box-sizing: border-box;
+}
+
+.container {
+    color: var(--grey);
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+h1 {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
 }

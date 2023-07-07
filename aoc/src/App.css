@@ -7,6 +7,7 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: var(--font-family);
 }
 
 body {
@@ -23,4 +24,20 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.side-bar button{
+    margin-bottom: 20px;
+}
+
+.d1,
+.d2,
+.d3,
+.d4,
+.d5,
+.d6,
+.d7
+{
+    background-color: var(--green);
+    color: var(--grey);
 }
