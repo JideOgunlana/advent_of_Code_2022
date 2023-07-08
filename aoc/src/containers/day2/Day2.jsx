@@ -4,9 +4,9 @@ import "../index.css";
 import "./day2.css";
 import { getLines } from "../../utils/utils";
 import { input1, input2 } from "../../tests/day2tests";
-import { FaFileDownload, FaFile, FaAd, FaTimes } from "react-icons/fa"
 import { getPlayerScore, getPredictedPlay} from "./helper/day2Helper";
-import { Header, Card, DayChallenge } from "../../components/"
+import { FaFileDownload, FaFile, FaSave, FaTimes } from "react-icons/fa";
+import { Header, Card, DayChallenge } from "../../components/";
 
 
 
@@ -144,11 +144,11 @@ const Day2 = () => {
 								{
 									(id !== "modaltest") ? 
 									<button onClick={()=>closeModal(id)} >
-										Close <FaTimes />
+										Close <FaTimes className="close-icon" />
 									</button>
 									:
 									<button onClick={()=>closeModal(id)} >
-										Save <FaAd />
+										Save <FaSave className="save-icon"/>
 									</button>
 								}
 								</div>
@@ -180,7 +180,7 @@ const Day2 = () => {
 						partOneContent={
 							<>
 								<p>
-									The Elves begin to set up camp on the beach. To decide whose tent gets to be closest to the snack storage, a giant <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" target="_blank">Rock Paper Scissors</a> tournament is already in progress.
+									The Elves begin to set up camp on the beach. To decide whose tent gets to be closest to the snack storage, a giant <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" target="_blank" rel="noreferrer">Rock Paper Scissors</a> tournament is already in progress.
 								</p>
 							
 								<p>

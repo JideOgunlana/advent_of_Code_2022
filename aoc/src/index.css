@@ -15,21 +15,34 @@
 body,
 body * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
 }
 
-.container {
-    color: var(--grey);
-    display: grid;
-    grid-template-columns: 10% 90%;
+body {
+    background: var(--bg-color);
 }
+
 
 h1 {
     grid-column: span 2;
     text-align: center;
 }
 
-.side-bar {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
+h3 {
+    color: var(--green)
+}
+
+a {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--green)
+}
+
+a:hover, a:focus {
+    color: #99ff99;
 }

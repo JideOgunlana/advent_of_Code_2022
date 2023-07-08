@@ -1,6 +1,3 @@
-.day__container {
-    color: var(--grey);
-}
 
 .cards__container {
     display: flex;
@@ -21,19 +18,24 @@
     justify-content: space-around;
     padding: 1rem;
     border: 1px solid var(--grey);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
 }
 
 .card:hover {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
-    box-shadow: 
-        6px 6px 10px var(--grey),
-        6px -6px 10px var(--grey),
-        -6px 6px 10px var(--grey),
-        -6px -6px 10px var(--grey);
+    /* border-top: none;
+    border-bottom: none; */
+    box-shadow:
+        0px 15px var(--grey),
+        0px -15px var(--grey)
+        /* 6px -6px var(--grey),
+        -6px 6px var(--grey),
+        -6px -6px var(--grey); */
 }
 
 .card-active {
-    border: 5px solid var(--green);
+    border-top: 10px solid var(--green);
+    border-bottom: 10px solid var(--green);
 }
     
 .card-active:hover {
@@ -130,27 +132,50 @@ textarea {
 .submit {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin: 30px 0;
+    padding: 20px;
 }
 
 .submit button {
+    position: relative;
     width: 200px;
-    border: none;
+    border: 1px solid;
     outline: none;
     border-radius: 5px;
-    padding: 1rem 0;
+    /* padding: 1rem 0;
+     */
+    padding: 20px 30px;
+    text-transform: uppercase;
+    display: block;
+    transition: background-color 0.4s;
 }
 
+.submit button::before{
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #ffffff71, transparent );
+    transform: translateX(2px) skew(-20deg);
+    transition: transform 0.4s ;
+}
+
+/* .submit button:hover::before {
+    transform: translateX(45px);
+} */
 .submit button:hover {
     border: 1px solid var(--green);
     background: transparent;
-    color: #fff;
-    box-shadow: 
+    color: var(--grey);
+    /* box-shadow: 
     5px 5px 5px var(--green),
     5px -5px 5px var(--green),
     -5px 5px 5px var(--green),
-    -5px -5px 5px var(--green);
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    -5px -5px 5px var(--green); */
+    /* transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s; */
 }
 
 table {
@@ -194,10 +219,24 @@ article em.star {
     font-style: normal;
     text-shadow: 0 0 5px var(--gold);
 }
-a {
-    text-decoration: none;
-    color: var(--green)
+
+
+.d1,
+.d2,
+.d3,
+.d4,
+.d5,
+.d6,
+.d7
+{
+    background-color: var(--green);
+    color: var(--grey);
 }
-a:hover, a:focus {
-    color: #99ff99;
+
+.save-icon {
+    color: var(--green);
+}
+
+.close-icon {
+    color: rgb(235, 108, 97);
 }

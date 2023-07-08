@@ -4,9 +4,9 @@ import "../index.css";
 import "./day1.css";
 import { getLines } from "../../utils/utils";
 import { input1, input2 } from "../../tests/day1tests";
-import { FaFileDownload, FaFile, FaAd, FaTimes } from "react-icons/fa"
 import { sumEachElfCalory, getMaxCalory, getTop3Cals } from "./helper/day1Helper";
-import { Header, Card, DayChallenge } from "../../components/"
+import { FaFileDownload, FaFile, FaSave, FaTimes } from "react-icons/fa";
+import { Header, Card, DayChallenge } from "../../components/";
 
 
 
@@ -132,11 +132,11 @@ const Day1 = () => {
 								{
 									(id !== "modaltest") ? 
 									<button onClick={()=>closeModal(id)} >
-										Close <FaTimes />
+										Close <FaTimes className="close-icon"/>
 									</button>
 									:
 									<button onClick={()=>closeModal(id)} >
-										Save <FaAd />
+										Save <FaSave className="save-icon" />
 									</button>
 								}
 								</div>
