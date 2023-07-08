@@ -1,6 +1,4 @@
-'use strict'
 
-export { getLines }
 
 /**
  * 
@@ -13,9 +11,9 @@ export { getLines }
 
 	for (let i = 0; i < fileContent.length; i++)
 	{
-		while (fileContent[i] != '\n' && i < fileContent.length)
+		while (fileContent[i] !== '\n' && i < fileContent.length)
 		{
-			if (fileContent[i] != '\r')
+			if (fileContent[i] !== '\r')
 				input += fileContent[i];
 			i++;
 		}
@@ -24,3 +22,5 @@ export { getLines }
 	}
 	return arr;
 }
+
+export { getLines }
