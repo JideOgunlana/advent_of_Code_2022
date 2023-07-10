@@ -1,11 +1,9 @@
 import React from "react";
+import "./header.css"
 
 const Header = ({title}) => {
 	return (
-		<div>
-			<h3>
-                Advent of Code<br/>&lt;y&gt;2022&lt;/y&gt;
-            </h3>
+		<div className="challenge-title">
             <p>
 				{title}
             </p>

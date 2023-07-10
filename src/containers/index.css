@@ -229,8 +229,7 @@ article em.star {
 .d6,
 .d7
 {
-    background-color: var(--green);
-    color: var(--grey);
+    background-color: rgba(119,119,165,.2);
 }
 
 .save-icon {
@@ -239,4 +238,12 @@ article em.star {
 
 .close-icon {
     color: rgb(235, 108, 97);
+}
+
+.day-info {
+    text-align: center;
+}
+
+.day-info span {
+    color: var(--green)
 }

@@ -1,8 +1,8 @@
-
+        
 .container {
     color: var(--grey);
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 100%;
 }
 
 .side-bar {
@@ -18,4 +18,107 @@
 
 .modal__button-container  * {
     font-size: 1.5rem;
+}
+
+.calendar {
+    /* margin: 0 auto;
+     */
+     justify-self: center;
+}
+.calendar > div {
+    display: flex;
+    gap: 30px;
+    /* text-align: right; */
+    color: #666666;
+}
+
+.preserve-wspace {
+    white-space: pre;
+}
+
+.calendar-day,
+.calendar-marks {
+    display: flex;
+    align-items: flex-end;
+}
+
+.calendar .calendar-color-u {
+    color: #5eabb4;
+}
+
+.calendar .calendar-color-s {
+    color: #d0b376;
+}
+
+.calendar .calendar-day {
+    color: #cccccc;
+}
+
+.calendar .calendar-mark-verycomplete,
+.calendar .calendar-mark-complete
+{
+    visibility: hidden
+}
+
+.calendar .calendar-complete .calendar-mark-complete, .calendar .calendar-verycomplete .calendar-mark-complete {
+
+    visibility: visible;
+    color: #ffff66;
+}
+
+.calendar .calendar-verycomplete .calendar-mark-verycomplete {
+    visibility: visible;
+    color: #ffff66;
+}
+
+.calendar > div:hover, .calendar >div:focus {
+    background-color: #1e1e46;
+    background-color: rgba(119,119,165,.2);
+    cursor: pointer;
+}
+
+.calendar .calendar-color-g0 {
+    color: #488813;
+}
+
+.calendar .calendar-color-g1 {
+    color: #4d8b03;
+}
+
+.calendar .calendar-color-g2 {
+    color: #7fbd39;
+}
+
+.calendar .calendar-color-g3 {
+    color: #427322;
+}
+
+.calendar .calendar-color-g4 {
+    color: #01461f;
+}
+
+.calendar .calendar-color-s {
+    color: #d0b376;
+}
+
+.calendar .calendar-color-u {
+    color: #5eabb4;
+}
+
+.calendar .calendar-color-c {
+    color: #eeeeee;
+}
+
+footer div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    word-spacing: 5px;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+footer img {
+    width: 1rem
 }

@@ -3,15 +3,15 @@ import {Header} from "../../components/";
 import "../index.css";
 
 
-const Day5 = () => {
+const Day17 = () => {
     return (
         <div className="day__container">
-            <Header title="-- Day 4: Camp Cleanup --" />
-            <p>
-                Solution to day 5 is written in C and can be found
+            <Header title="--- Day 17: Pyroclastic Flow ---" />
+            <p className="day-info">
+                <span>Not solved</span>
             </p>
         </div>
     )
 }
 
-export default Day5;
+export default Day17;
