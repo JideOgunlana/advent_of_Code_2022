@@ -2,7 +2,10 @@
 ![](./public/design/sample.png)
 
 # Summary
-Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language
+Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language\
+`You can view the result at` [https://willowy-muffin-76f26a.netlify.app/](https://willowy-muffin-76f26a.netlify.app/)
+
+
 
 > This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
